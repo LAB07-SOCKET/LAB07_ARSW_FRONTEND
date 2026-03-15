@@ -11,6 +11,7 @@
 > - **Socket.IO (Node.js):** https://github.com/DECSIS-ECI/example-backend-socketio-node-/blob/main/README.md
 > - **STOMP (Spring Boot):** https://github.com/DECSIS-ECI/example-backend-stopm/tree/main
 
+---
 
 ## 👨‍💻 Developers
 
@@ -109,7 +110,7 @@ https://github.com/DECSIS-ECI/example-backend-stopm/tree/main
 # endpoint WS (ej.): /ws-blueprints
 ```
 
-### 2) Front (este repo)
+### B) Front (este repo)
 ```bash
 npm i
 npm run dev
@@ -119,7 +120,7 @@ En la interfaz: selecciona **Socket.IO** o **STOMP**, define `author` y `name`, 
 
 ---
 
-## 🔌 Protocolos de Tiempo Real (detalle mínimo)
+## 2 )🔌 Protocolos de Tiempo Real (detalle mínimo)
 
 ### A) Socket.IO
 - **Unirse a sala**
@@ -147,13 +148,19 @@ En la interfaz: selecciona **Socket.IO** o **STOMP**, define `author` y `name`, 
 
 ---
 
-## 🧪 Casos de prueba mínimos
+## 3) 🧪 Casos de prueba mínimos
 - **Estado inicial**: al seleccionar plano, el canvas carga puntos (`GET /api/blueprints/:author/:name`).  
 - **Dibujo local**: clic en canvas agrega puntos y redibuja.  
 - **RT multi-pestaña**: con 2 pestañas, los puntos se **replican** casi en tiempo real.  
 - **CRUD**: Create/Save/Delete funcionan y refrescan la lista y el **Total** del autor.
 
 ---
+
+## Solución:
+[Ver en PDF el Desarrollo Mediante Socket.IO](./docs/Puntos_1-2-3.pdf)
+
+---
+
 
 ## 📊 Entregables del equipo
 1. Código del Front integrado con **CRUD** y **RT** (Socket.IO o STOMP).  
