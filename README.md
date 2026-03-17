@@ -74,6 +74,8 @@ React (Vite)
 
 Para garantizar que múltiples usuarios colaboren en el mismo plano sin interferir con otros, implementamos una estrategia de segmentación de canales:
 
+[Ver en PDF Decisiones](./docs/Decisiones.pdf)
+
 
 **Convenciones recomendadas**  
 - **Plano como canal/sala**: `blueprints.{author}.{name}`  
