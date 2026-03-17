@@ -48,6 +48,20 @@ Al finalizar, el equipo debe:
 
 ---
 
+## 🛠️ Endpoints y Operaciones CRUD
+
+La integración se realiza mediante el módulo `createApi`, que centraliza las peticiones al backend REST para gestionar la persistencia de los planos:
+
+| Operación | Método | Endpoint | Descripción |
+| :--- | :--- | :--- | :--- |
+| **Listar** | `GET` | `/api/blueprints?author={author}` | Obtiene la lista de planos y el total de puntos por autor. |
+| **Consultar** | `GET` | `/api/blueprints/{author}/{name}` | Recupera los puntos específicos de un plano. |
+| **Crear** | `POST` | `/api/blueprints` | Registra un nuevo plano (se inicializa con `points: []`). |
+| **Actualizar** | `PUT` | `/api/blueprints/{author}/{name}` | Persiste los puntos dibujados en el canvas al servidor. |
+| **Eliminar** | `DELETE` | `/api/blueprints/{author}/{name}` | Borra el plano de forma definitiva del servidor. |
+
+---
+
 ## 🏗️ Arquitectura (visión rápida)
 
 ```
@@ -57,6 +71,9 @@ React (Vite)
      ├─ Socket.IO: join-room / draw-event ──────────> Socket.IO Server (Node)
      └─ STOMP: /app/draw -> /topic/blueprints.* ────> Spring WebSocket/STOMP
 ```
+
+Para garantizar que múltiples usuarios colaboren en el mismo plano sin interferir con otros, implementamos una estrategia de segmentación de canales:
+
 
 **Convenciones recomendadas**  
 - **Plano como canal/sala**: `blueprints.{author}.{name}`  
@@ -166,6 +183,11 @@ En la interfaz: selecciona **Socket.IO** o **STOMP**, define `author` y `name`, 
 1. Código del Front integrado con **CRUD** y **RT** (Socket.IO o STOMP).  
 2. **Video corto** (≤ 90s) mostrando colaboración en vivo y operaciones CRUD.  
 3. **README del equipo**: setup, endpoints usados, decisiones (rooms/tópicos), y (opcional) breve comparativa Socket.IO vs STOMP.
+
+[Ver en PDF Comparativa](./docs/Comparativa.pdf)
+
+**Video colaboración en vivo:**
+https://youtu.be/Z3-lL04lpyM
 
 ---
 
